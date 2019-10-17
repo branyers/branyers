@@ -1,0 +1,34 @@
+<div class="col-md-12 mt-3">
+  <h1>{{page_title}}</h1>
+  <p>
+    Identificate en la plataforma para empezar!!
+  </p>
+
+  <form action="" class="col-md-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+<div class="form-group">
+
+    <p class="form-group">
+        <label for="name">Email</label>
+        <input type="email" name="email" class="form-control" #email = "ngModel" [(ngModel)]="user.email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="Invalid email address">
+        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+            El Correo no es valido
+          </small>
+      </p>
+      <p class="form-group">
+          <label for="name">Contraseña</label>
+          <input type="password" name="password" class="form-control" #password = "ngModel" [(ngModel)]="user.password" required>
+          <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+              La Contraseña no es valido
+            </small>
+        </p>
+  
+        <input type="submit" value="Identificarse" class="btn btn-success" [disabled]="loginForm.invalid"/>
+
+</div>
+
+  </form>
+  
+
+
+</div>
+
